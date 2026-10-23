@@ -45,7 +45,7 @@ img { max-width: 100%; }
   box-shadow: none;
 }
 
-/* Language preview: Korean remains the active document until translation is ready. */
+/* Both language pages share the same layout and navigation. */
 .language-toolbar {
   display: flex;
   flex-direction: column;
@@ -76,13 +76,24 @@ img { max-width: 100%; }
   font-size: 13px;
   font-weight: 600;
   line-height: 1.5;
+  text-decoration: none;
   cursor: pointer;
 }
 .language-button:hover { background: var(--soft); color: var(--primary); }
-.language-button[aria-pressed="true"] { background: var(--primary); color: var(--white); }
+.language-button[aria-current="page"] { background: var(--primary); color: var(--white); }
 .language-button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
-.language-badge { color: var(--muted); font-size: 10px; font-weight: 400; }
-.language-notice { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; text-align: right; }
+html:lang(ja) body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  word-break: normal;
+  line-break: strict;
+  letter-spacing: 0;
+}
+.excerpt-lines .excerpt-translation {
+  margin: 8px 0 0;
+  color: var(--body);
+  font-size: 13px;
+  line-height: 1.75;
+}
 
 /* Both companies retain their original logo proportions. */
 .masthead {
